@@ -1,0 +1,9 @@
+rhf_data
+data
+weights
+__pycache__
+.vscode
+figures
+old_figures
+results
+paper_utils
