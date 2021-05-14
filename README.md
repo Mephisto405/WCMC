@@ -1,5 +1,5 @@
 # WCMC: Weakly-Supervised Contrastive Learning in Path Manifold for Monte Carlo Image Reconstruction
-### [Project Page](https://bit.ly/3uHRUPG) | [Paper](https://bit.ly/33G6vPG)
+### [Project Page](https://bit.ly/3uHRUPG) | [Paper](https://sgvr.kaist.ac.kr/wp-content/uploads/2021/05/main.pdf)
 Official PyTorch implementation of WCMC.<br><br>
 [Weakly-Supervised Contrastive Learning in Path Manifold for Monte Carlo Image Reconstruction](https://bit.ly/3uHRUPG)  
  [In-young Cho](https://bit.ly/3hma5qh),
