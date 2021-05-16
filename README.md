@@ -16,6 +16,15 @@ Scene credits
 - ["Library-Home Office"](https://www.blendswap.com/blend/19984) by [ThePefDispenser](https://blendswap.com/profile/663773) under CC BY 3.0.
 - ["My Kitchen"](https://www.blendswap.com/blend/9528) by [tokabilitor](https://www.blendswap.com/profile/41638) under CC0.
 
+## Informal Paper Summary
+
+Our manifold learning framework analyzes light *path clusters* in Monte Carlo path tracing, resulting in better *image reconstruction*. Our contrastive method fully utilizes sparse *high-dimensional* auxiliary features.
+
+Keywords:
+- Multi-task learning, Manifold learning
+- High-dimensional path features, Path-space manifold, Sparsity
+- Deep learning-based noise removal
+
 ## Quick Start
 0. State-of-the-art baselines: 
     - Kernel-predicting convolutional network (KPCN) [Bako et al. 2017]
