@@ -264,6 +264,22 @@ class RelativeMSE(torch.nn.Module):
         return loss
 
 
+def _pos_encoding(x, L=7):
+    # (B, C, H, W)
+    B, C, H, W = x.shape
+    x = x.permute(0,2,3,1).reshape(-1,C) # (B*H*W, C)
+    exponents = torch.tensor([2.0**i for i in range(L)], device=x.device)
+    exponents = exponents.reshape(1, -1) # (1, L)
+
+    y = x[...,None] @ exponents # (B*H*W, C) @ (1, L) = (B*H*W, C, L)
+    y = torch.cat([torch.sin(math.pi * y), torch.cos(math.pi * y)], dim=-1) # (B*H*W, C, 2*L)
+    y = y.reshape(B*H*W, -1) # (B*H*W, C*2*L)
+
+    y = torch.cat([x, y], dim=1) # (B*H*W, C*(2*L+1))
+    y = y.reshape(B, H, W, -1)
+    return y
+
+
 class SMAPE(torch.nn.Module):
     """Symmetric Mean Absolute error.
     :math:`\\frac{|x - y|} {|x| + |y| + \epsilon}`

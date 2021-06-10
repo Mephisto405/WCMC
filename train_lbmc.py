@@ -24,7 +24,7 @@ from support.networks import PathNet
 from support.interfaces import LBMCInterface
 from support.datasets import MSDenoiseDataset
 from support.utils import BasicArgumentParser
-from support.losses import TonemappedRelativeMSE, RelativeMSE, FeatureMSE, GlobalRelativeSimilarityLoss
+from support.losses import TonemappedRelativeMSE, RelativeMSE, FeatureMSE, GlobalRelativeSimilarityLoss, _pos_encoding
 
 # Gharbi et al. dependency
 sys.path.insert(1, configs.PATH_LBMC)
@@ -162,7 +162,7 @@ def init_model(dataset, args):
         
         # Initialize losses (NOTE: modified for each model)
         def recon_loss(im, ref):
-            return SMAPE(torch.clamp(im, min=0, max=1e2), torch.clamp(ref, min=0, max=1e2))
+            return SMAPE(_pos_encoding(torch.clamp(im, min=0, max=1e2)), _pos_encoding(torch.clamp(ref, min=0, max=1e2)))
 
         loss_funcs = {
             'l_recon': recon_loss,
